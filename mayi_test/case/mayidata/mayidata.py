@@ -48,9 +48,13 @@ driver.find_element_by_css_selector(
     "#root > div > div:nth-child(2) > div > div > header > div > div > div.flex.align-center.flex-align-right > span > span:nth-child(3) > span").click()
 
 driver.switch_to.window(handles[1])
+expand = "svg[name=\"expand\"]"
+# expand = "# root > div > div:nth-child(2) > div > div > header > div > div > div.flex.align-center.flex-align-right > span > span:nth-child(5)"
+# expand = "#root > div > div:nth-child(2) > div > div > header > div > div > div.flex.align-center.flex-align-right > span > span:nth-child(4)"
 while True:
     # WebDriverWait(driver, 20 ,0.5).until(driver.find_element_by_css_selector("svg[name=\"expand\"]"))
-    driver.find_element_by_css_selector("svg[name=\"expand\"]").click()
+    # driver.find_element_by_css_selector("svg[name=\"expand\"]").click()
+    # driver.find_element_by_css_selector(expand).click()
     target = driver.find_element_by_css_selector(
         "#root > div > div:nth-child(2) > div > div > div > div > div > div:nth-child(1)")
     driver.execute_script("arguments[0].scrollIntoView();", target)  # 拖动到可见的元素去
@@ -74,7 +78,8 @@ while True:
 
     driver.switch_to.window(handles[0])
     # WebDriverWait(driver, 20, 0.5).until(driver.find_element_by_css_selector("svg[name=\"expand\"]"))
-    driver.find_element_by_css_selector("svg[name=\"expand\"]").click()
+    # driver.find_element_by_css_selector("svg[name=\"expand\"]").click()
+    # driver.find_element_by_css_selector(expand).click()
     js="var q=document.body.style.zoom=0.8"#缩放至80%
     driver.execute_script(js)
     target = driver.find_element_by_css_selector(
