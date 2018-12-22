@@ -44,6 +44,7 @@ kw = "#kw"
 # handles = driver.window_handles # 获取当前窗口句柄集合（列表类型）
 # driver.switch_to.window(handles[0])
 # driver.find_element_by_id("kw").send_keys(Keys.SHIFT,"Selenium")
+# driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")#到页面底部
 driver.find_element_by_css_selector(kw).send_keys(Keys.SHIFT,"Selenium")
 
 driver.find_element_by_id("kw").send_keys(Keys.F11)
