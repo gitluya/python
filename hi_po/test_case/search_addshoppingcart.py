@@ -21,26 +21,26 @@ class TestSearchAddShoppingCart(object):
         # self.driver = webdriver.chrome()
         self.driver.implicitly_wait(30)
         self.driver.maximize_window()
-        self.driver.get("test_uri")
+        self.driver.get(test_uri)
 
     def testSearchAddShoppingCart(self):
-        home = home_page(self.driver)
-        home.searchInput.sendkey("决战618")
+        home = home_page(webdriver)
+        home_page.JDHomePage.searchInput.sendkey("决战618")
         # search_result_page.JDsearchResultPage.
-        # driver = self.driver
-        # driver.find_element_by_id("J-toolbar-load-hook").click()
-        # driver.find_element_by_id("J-toolbar-load-hook").click()
-        # driver.find_element_by_id("key").clear()
-        # driver.find_element_by_id("key").send_keys(u"决战618")
-        # driver.find_element_by_css_selector("button.button").click()
-        # driver.find_element_by_id("J-toolbar-load-hook").click()
-        # driver.find_element_by_css_selector("font.skcolor_ljg").click()
-        # driver.find_element_by_xpath(
-        #     "//li[@onclick='log(\"gz_item\", \"gz_detail\",\"02\",\"zjzh_dh\",\"null\",\"main\")']").click()
-        # driver.find_element_by_css_selector("span.name").click()
-        # driver.find_element_by_id("InitCartUrl").click()
-        # driver.find_element_by_xpath(
-        #     "(//a[contains(@href, '//cart.jd.com/gate.action?pid=12202253&pcount=1&ptype=1&ybId=31810060776')])[3]").click()
+        driver = self.driver
+        driver.find_element_by_id("J-toolbar-load-hook").click()
+        driver.find_element_by_id("J-toolbar-load-hook").click()
+        driver.find_element_by_id("key").clear()
+        driver.find_element_by_id("key").send_keys(u"决战618")
+        driver.find_element_by_css_selector("button.button").click()
+        driver.find_element_by_id("J-toolbar-load-hook").click()
+        driver.find_element_by_css_selector("font.skcolor_ljg").click()
+        driver.find_element_by_xpath(
+            "//li[@onclick='log(\"gz_item\", \"gz_detail\",\"02\",\"zjzh_dh\",\"null\",\"main\")']").click()
+        driver.find_element_by_css_selector("span.name").click()
+        driver.find_element_by_id("InitCartUrl").click()
+        driver.find_element_by_xpath(
+            "(//a[contains(@href, '//cart.jd.com/gate.action?pid=12202253&pcount=1&ptype=1&ybId=31810060776')])[3]").click()
 
     def tearDown(self):
         self.driver.quit()

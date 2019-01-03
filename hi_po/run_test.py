@@ -17,6 +17,7 @@ from search_addshoppingcart import TestSearchAddShoppingCart
 # 通过ParamFactory获取参数详情和参数条数，通过unittest设计测试套件，然后通过Report类获取测试报告
 #设置参数
 searchParam = ParamFactory().chooseParam('xls', {'file':searchProcessParam, 'sheet':0}).paramAlllineDict()
+# searchParam = Param().chooseParam('xls', {'file':searchProcessParam, 'sheet':0}).paramAlllineDict()
 searchParamCount = len(searchParam)
 # 设计测试
 testSuite = unittest.TestSuite()

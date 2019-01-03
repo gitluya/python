@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import os
-
+from time import sleep
+from selenium.webdriver.common.keys import Keys
+import actions as actions
 from selenium import webdriver
 # driver = webdriver.Firefox()#火狐
 # driver = webdriver.Ie()#IE
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 # # 去掉 "chrome正受到自动测试软件的控制" 警告框
 # chromeOptions = webdriver.ChromeOptions()
@@ -22,9 +25,6 @@ driver = webdriver.Chrome(chromedriver)
 
 driver.maximize_window()
 driver.get("http://www.baidu.com")
-# driver.execute_script("window.open('http://news.baidu.com/')","")
-# handles = driver.window_handles # 获取当前窗口句柄集合（列表类型）
-# driver.switch_to.window(handles[0])
-driver.find_element_by_id("kw").send_keys("Selenium")
-driver.find_element_by_id("su").click()
+
+# driver.find_element_by_id("su").click()
 driver.quit()
