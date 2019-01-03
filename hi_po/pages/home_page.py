@@ -5,3 +5,9 @@ from hi_po import PageObject,PageElement
 class JDHomePage(PageObject):
     searchInput = PageElement(id_ = 'key')
     searchButton = PageElement(xpath = '//*[@id="search"]/div/div[2]/button')
+    # def searchInput(self):
+    #     try:
+    #         searchInput = PageElement(id_='key')
+    #         return searchInput
+    #     except Exception as e:
+    #         raise e
