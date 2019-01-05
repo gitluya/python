@@ -2,6 +2,6 @@
 pip install selenium
 pip install page_objects
 pip ddt
-pip html_testRunner
+pip install html-testRunner
 
 python3 test3.py

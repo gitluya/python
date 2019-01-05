@@ -19,8 +19,10 @@ def get_data(file_name):
 
 #运行测试脚本的时候，ddt把测试数据转换为有效的Python标识符，生成名称更有意义的测试方法。
 @ddt.ddt
-class MaiLogin(unittest.TestCase):
+class MaiLogin(unittest.TestCase):#为什么类名从SearchDDT换成MaiLogin报错
+
     def setUp(self):
+
         print("Start!")
         # self.driver = webdriver.Firefox()
         chromedriver = "C:/chromedriver.exe"
@@ -39,13 +41,15 @@ class MaiLogin(unittest.TestCase):
     def test_login(self, mai_phone, mai_password, error_message):
         print(mai_phone)
         print(mai_password)
+        self.driver.find_element_by_id('loginId').clear()
         self.driver.find_element_by_id('loginId').send_keys(mai_phone)
+        self.driver.find_element_by_id('password').clear()
         self.driver.find_element_by_id('password').send_keys(mai_password)
         self.driver.find_element_by_id('submit').click()
 
         errorMessage = self.driver.find_element_by_id('errorMessage').text
         print(errorMessage)
-        self.assertEqual(error_message, error_message)  # 用assertEqual(a,b)方法来断言a == b 请输入密码等于error_message
+        self.assertEqual(error_message, error_message)  # 用assertEqual(a,b)方法断言a == b
         self.driver.get_screenshot_as_file("D:/develop/python/mayi_test/screenshot/login_pwd_null.png")
 
     def tearDown(self):

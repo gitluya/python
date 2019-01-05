@@ -16,7 +16,7 @@ class MyTest(unittest.TestCase):
 
 	#@data('unittest','ddt','selenium')
 	@file_data('test_data_list.json')
-	def test_baidu(self,keywords):
+	def test_baidu(self,keywords):	# 一组参数要加@unpack
 		class BaiduPage(PageObject):
 			keywords = PageElement(id_='kw')
 			search = PageElement(id_='su')
@@ -36,7 +36,13 @@ class MyTest(unittest.TestCase):
 
 		resultPage = BaiduResultPage(self.driver)
 		self.assertTrue(len(resultPage.records)>0)
- 
+		# self.driver.get
+		# resultPage.w.get_screenshot_as_file(keywords+'.png')
+		# resultPage.w.get_screenshot_as_file('/Screenshots/'+keywords+'.png')
+		resultPage.w.get_screenshot_as_file('/Screenshots/foo.png')
+		resultPage.w.get_screenshot_as_base64()
+		print('截屏')
+
 	@classmethod
 	def tearDownClass(cls):
 		cls.driver.quit()
