@@ -26,6 +26,7 @@ def allcase():
             testcase.addTest(test_case)
     return testcase
 
+
 if __name__ == "__main__":
     # runner=unittest.TextTestRunner()
     # runner.run(allcase())
@@ -36,6 +37,7 @@ if __name__ == "__main__":
     now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
     # 设置报告名称格式
     HtmlFile = report_path + now + "HtmlReport.html"
+    print(HtmlFile)
 
     # report_path = r"D:\develop\reports\result.html"
     fp = open(HtmlFile, "wb")
