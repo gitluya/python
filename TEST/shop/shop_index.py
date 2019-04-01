@@ -13,25 +13,26 @@ class ShopIndex(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.dr = webdriver.Chrome()
-        # self.dr.maximize_window()
-        self.dr.set_window_size(375,750)
-        # self.dr.refresh()
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(20)  # 隐性等待，最长等30秒
+        # self.driver.maximize_window()
+        self.driver.set_window_size(375,750)
+        # self.driver.refresh()
 
     # 定义访问商城首页方法
     def shopIndex(self,shopUrl):
 
-        self.dr.get(shopUrl)
+        self.driver.get(shopUrl)
         print(shopUrl)
 
     def test_shop1(self):
         '''明丞子商城首页'''
         self.shopIndex("https://m.mingchengzi.com/yixidao")
-        # error_message = self.dr.find_element_by_id('errorMessage').text
+        # error_message = self.driver.find_element_by_id('errorMessage').text
         # self.assertEqual(error_message, '账号不能为空！')  # 用assertEqual(a,b)方法来断言  a == b
-        title = self.dr.title
+        title = self.driver.title
         print(title)
-        self.dr.get_screenshot_as_file('/Screenshots/title.png')
+        self.driver.get_screenshot_as_file('/Screenshots/title.png')
         sleep(2)
         print('明丞子商城')
 
@@ -46,7 +47,7 @@ class ShopIndex(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         print('test pass！')
-        self.dr.quit()
+        self.driver.quit()
 
         # setUpClass():必须使用@classmethod 装饰器,所有test运行前运行一次
         # tearDownClass():必须使用@classmethod装饰器,所有test运行完后运行一次

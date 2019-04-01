@@ -16,12 +16,12 @@ def _format_addr(s):
         addr.encode('utf-8') if isinstance(addr, unicode) else addr))
 
 ## ==============定义发送附件邮件==========
-def send_file(HtmlFile):
+def send_file():
     smtpserver = 'smtp.qq.com'
     user = '875914261@qq.com' #发件人邮箱账号
     password = 'nbtthquawshabahj' #qq授权码  设置>>账户>>开启服务 获取授权码
     sender = '875914261@qq.com'
-    receiver = 'lu.ya@mayi888.com' #收件人邮箱账号
+    receiver = ['lu.ya@mayi888.com','875914261@qq.com'] #收件人邮箱账号
 
     # # 设置报告文件保存路径
     # report_path = os.path.dirname(os.path.abspath('.')) + '\\test_report\\'
@@ -29,9 +29,9 @@ def send_file(HtmlFile):
     # now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
     # # 设置报告名称格式
     # HtmlFile = report_path + now + "HtmlReport.html"
-    import run_all_test
-    HtmlFile = run_all_test.HtmlFile()
-    file = open(HtmlFile, 'rb').read()
+    # import run_all_test
+    # HtmlFile = run_all_test.HtmlFile()
+    file = open(r"D:\develop\python\test_report\HtmlReport.html", 'rb').read()
     subject = '自动化测试报告--微商城访问'
 
     att = MIMEText(file, "html", "utf-8")
